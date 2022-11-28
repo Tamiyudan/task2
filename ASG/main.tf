@@ -77,14 +77,9 @@ module "alb" {
   name               = "my-alb"
   load_balancer_type = "application"
   enable_cross_zone_load_balancing = true
-  vpc_id             = var.vpc_id
+  vpc_id             = module.vpc_id
   subnets = [
-    var.public_subnet1,
-    var.public_subnet2,
-    var.public_subnet3,
-    var.private_subnet1,
-    var.private_subnet2,
-    var.private_subnet3
+    
   ]
   security_groups = [
     aws_security_group.allow_tls.id
